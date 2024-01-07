@@ -1,5 +1,6 @@
 .coverage
 .coverage.*
+coverage.json
 *.egg-info
 *.log
 *.mo
