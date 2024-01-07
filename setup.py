@@ -17,7 +17,7 @@ long_description = "\n\n".join(
 setup(
     name="redturtle.auditlog",
     version="1.0.1.dev0",
-    description="An add-on for Plone",
+    description="Log security related events in Plone",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
     classifiers=[
@@ -28,9 +28,10 @@ setup(
         "Framework :: Plone :: 5.2",
         "Framework :: Plone :: 6.0",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
