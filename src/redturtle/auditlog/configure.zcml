@@ -3,44 +3,76 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:plone="http://namespaces.plone.org/plone"
-    i18n_domain="redturtle.auditlog">
+    i18n_domain="redturtle.auditlog"
+    >
 
   <i18n:registerTranslations directory="locales" />
 
-  <!--
-    Be careful if you use general includeDependencies, it can have side effects!
-    Better import explicit packages or configurations ;)
-  -->
-  <!--<includeDependencies package="." />-->
-
-  <!-- has to be loaded before permissions are used, so keep above views aso. -->
-  <include file="permissions.zcml" />
-
-  <include package=".browser" />
-
-  <genericsetup:registerProfile
-      name="default"
-      title="redturtle.auditlog"
-      directory="profiles/default"
-      description="Installs the redturtle.auditlog add-on."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      post_handler=".setuphandlers.post_install"
+  <subscriber
+      for="Products.PluggableAuthService.interfaces.authservice.IPropertiedUser
+           Products.PluggableAuthService.interfaces.events.IPrincipalCreatedEvent"
+      handler=".subscribers.new_user"
       />
 
-  <genericsetup:registerProfile
-      name="uninstall"
-      title="redturtle.auditlog (uninstall)"
-      directory="profiles/uninstall"
-      description="Uninstalls the redturtle.auditlog add-on."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      post_handler=".setuphandlers.uninstall"
+  <subscriber
+      for="*
+           Products.PluggableAuthService.interfaces.events.IPrincipalDeletedEvent"
+      handler=".subscribers.del_user"
       />
 
-  <utility
-      factory=".setuphandlers.HiddenProfiles"
-      name="redturtle.auditlog-hiddenprofiles"
+  <subscriber
+      for="*
+           Products.PluggableAuthService.interfaces.events.IGroupCreatedEvent"
+      handler=".subscribers.new_group"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
+  <subscriber
+      for="*
+           Products.PluggableAuthService.interfaces.events.IGroupDeletedEvent"
+      handler=".subscribers.del_group"
+      />
 
+  <subscriber
+      for="*
+           Products.PluggableAuthService.interfaces.events.IPrincipalAddedToGroupEvent"
+      handler=".subscribers.add_principal_to_group"
+      />
+
+  <subscriber
+      for="*
+           Products.PluggableAuthService.interfaces.events.IPrincipalRemovedFromGroupEvent"
+      handler=".subscribers.remove_principal_from_group"
+      />
+
+  <!-- 
+
+
+
+class IUserLoggedInEvent(IPASEvent):
+    """ A user logged in.
+    """
+
+
+class IUserLoggedOutEvent(IPASEvent):
+    """ A user logged out.
+    """
+
+
+
+class ICredentialsUpdatedEvent(IPASEvent):
+    """A principal has changed her password.
+
+    Sending this event will cause a PAS user folder to trigger its active
+    credential update plugins.
+    """
+    password = Attribute('The new password')
+
+
+class IPropertiesUpdatedEvent(IPASEvent):
+    """A principals properties have been updated.
+    """
+    properties = Attribute('List of modified property ids')
+
+
+-->
 </configure>

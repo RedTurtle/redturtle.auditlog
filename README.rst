@@ -31,63 +31,28 @@
 redturtle.auditlog
 ==================
 
-An add-on for Plone
-
 Features
 --------
 
-- Can be bullet points
-
-
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
-
-
-Installation
-------------
-
-Install redturtle.auditlog by adding it to your buildout::
-
-    [buildout]
-
-    ...
-
-    eggs =
-        redturtle.auditlog
-
-
-and then running ``bin/buildout``
-
-
-Authors
--------
-
-Provided by awesome people ;)
-
-
-Contributors
-------------
-
-Put your name here, you deserve it!
-
-- ?
+- Log security related events in Plone:
+    - [ ] Login
+    - [ ] Logout
+    - [ ] Password reset
+    - [ ] Password change
+    - [x] User creation
+    - [x] User deletion
+    - [x] User global role assignment
+    - [x] User global role unassignment
+    - [x] User local role assignment
+    - [x] User local role unassignment
+    - [x] User group creation
+    - [x] User group deletion
+    - [x] User group assignment
+    - [x] User group unassignment
+    - [x] Group role assignment
+    - [x] Group role unassignments
+    - [x] Group local role assignment
+    - [x] Group local role unassignment
 
 
 Contribute
@@ -96,13 +61,6 @@ Contribute
 - Issue Tracker: https://github.com/collective/redturtle.auditlog/issues
 - Source Code: https://github.com/collective/redturtle.auditlog
 - Documentation: https://docs.plone.org/foo/bar
-
-
-Support
--------
-
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
 
 
 License

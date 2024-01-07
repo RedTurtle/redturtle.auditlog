@@ -36,4 +36,5 @@ report.html
 .tox/
 reports/
 venv/
+.python-version
 # excludes
