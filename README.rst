@@ -23,8 +23,8 @@
     :target: https://github.com/RedTurtle/redturtle.auditlog/actions
     :alt: Tests
 
-.. image:: https://coveralls.io/repos/github/RedTurtle/redturtle.auditlog/badge.svg?branch=master
-    :target: https://coveralls.io/github/RedTurtle/redturtle.auditlog?branch=master
+.. image:: https://coveralls.io/repos/github/RedTurtle/redturtle.auditlog/badge.svg?branch=main
+    :target: https://coveralls.io/github/RedTurtle/redturtle.auditlog?branch=main
     :alt: Coverage
 
 
