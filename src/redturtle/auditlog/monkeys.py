@@ -17,6 +17,9 @@ def patches():
     GroupAwareRoleManager.assignRolesToPrincipal = logafter(
         GroupAwareRoleManager.assignRolesToPrincipal, "USER ROLE ASSIGNED"
     )
+    GroupAwareRoleManager.assignRoleToPrincipal = logafter(
+        GroupAwareRoleManager.assignRoleToPrincipal, "USER ROLE ASSIGNED"
+    )
     RoleManager.manage_setLocalRoles = logafter(
         RoleManager.manage_setLocalRoles, "USER LOCALROLE ASSIGNED"
     )

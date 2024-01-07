@@ -5,7 +5,8 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- log `assignRoleToPrincipal` method (used by usergroup controlpanel in classicui)
+  [mamico]
 
 
 1.0.0 (2024-01-07)
